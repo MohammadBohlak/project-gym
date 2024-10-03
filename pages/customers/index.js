@@ -8,7 +8,8 @@ import { Column } from "primereact/column";
 import axios from "axios";
 import { Toast } from "primereact/toast";
 import { confirmDialog, ConfirmDialog } from "primereact/confirmdialog";
-const url = "http://localhost:3000";
+const url = "https://project-gym-chi.vercel.app";
+// const url = "http://localhost:3000";
 export default function Add() {
   const [name, setName] = useState("");
   const [day, setDay] = useState("");
