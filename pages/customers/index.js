@@ -27,6 +27,9 @@ export default function Add() {
       })
       .then(() => {
         getCustomers();
+        setMonth("")
+        setDay("")
+        setName("")
       });
   };
   const getCustomers = () => {
