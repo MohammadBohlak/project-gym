@@ -5,6 +5,7 @@
   "/api/customers/[id]": "pages/api/customers/[id].js",
   "/api/customers": "pages/api/customers.js",
   "/api/hello": "pages/api/hello.js",
+  "/customers/add-customer": "pages/customers/add-customer.html",
   "/customers": "pages/customers.html",
   "/": "pages/index.html",
   "/404": "pages/404.html"
