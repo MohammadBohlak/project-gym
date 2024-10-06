@@ -7,6 +7,7 @@
   "/api/hello": "pages/api/hello.js",
   "/customers/add-customer": "pages/customers/add-customer.html",
   "/customers": "pages/customers.html",
+  "/customers/search-customer": "pages/customers/search-customer.html",
   "/": "pages/index.html",
   "/404": "pages/404.html"
 }

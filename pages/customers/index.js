@@ -15,7 +15,6 @@ export default function Add() {
   const router = useRouter()
   const [year, setYear] = useState("");
   const [customers, setCustomers] = useState([]);
-  const [search, setSearch] = useState("");
 
  
   const getCustomers = () => {
@@ -47,15 +46,14 @@ export default function Add() {
       </>
     )
   };
-  const dateString = "2024-10-4";
-  const dateObject = new Date(dateString);
+  // const dateString = "2024-10-4";
+  // const dateObject = new Date(dateString);
 
-  console.log(dateObject.getDate());
-  console.log(dateObject.getMonth() + 1);
-  console.log(dateObject.getFullYear());
+  // console.log(dateObject.getDate());
+  // console.log(dateObject.getMonth() + 1);
+  // console.log(dateObject.getFullYear());
 
-  let searchCustomer = customers.filter((e) => e.name.includes(search));
-  console.log(searchCustomer);
+  // console.log(searchCustomer);
 
   const toast = useRef(null);
   const accept = (e) => {
@@ -71,41 +69,13 @@ export default function Add() {
     <>
     <Toast ref={toast} />
     <ConfirmDialog />
-    <Button className="mb-5" type='button' label="اضافة زبون" onClick={()=>{router.push('/customers/add-customer')}}/>
+    <div className="flex justify-content-between mb-5 flex-wrap" >
+    <Button type='button' label="اضافة زبون" onClick={()=>{router.push('/customers/add-customer')}}/>
+    <Button type='button' label="بحث عن زبون" onClick={()=>{router.push('/customers/search-customer')}}/>
 
-      <div className="p-inputgroup flex-1 mb-2">
-        <InputText
-          placeholder="بحث"
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value);
-          }}
-        />
-      </div>
-      {search != "" && (
-        <div className="card">
-          <DataTable
-            className="text-primary"
-            value={searchCustomer}
-            showGridlines
-            tableStyle={{
-              width: "100%",
-              marginBottom: "10px",
-            }}
-          >
-            <Column
-              className="text-primary text-center"
-              field="name"
-              header="الاسم"
-            ></Column>
-            <Column
-              className="text-primary text-center"
-              field="date"
-              header="تاريخ التسجيل"
-            ></Column>
-          </DataTable>
-        </div>
-      )}
+    </div>
+      
+      
       <div className="card">
         <DataTable
           value={customers}

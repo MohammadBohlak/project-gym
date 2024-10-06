@@ -52,7 +52,6 @@ function Add() {
     const router = (0,next_router__WEBPACK_IMPORTED_MODULE_10__.useRouter)();
     const [year, setYear] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)("");
     const [customers, setCustomers] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)([]);
-    const [search, setSearch] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)("");
     const getCustomers = ()=>{
         axios__WEBPACK_IMPORTED_MODULE_7__["default"].get(`${url}/api/customers`).then((res)=>{
             setCustomers(res.data);
@@ -83,13 +82,12 @@ function Add() {
             })
         });
     };
-    const dateString = "2024-10-4";
-    const dateObject = new Date(dateString);
-    console.log(dateObject.getDate());
-    console.log(dateObject.getMonth() + 1);
-    console.log(dateObject.getFullYear());
-    let searchCustomer = customers.filter((e)=>e.name.includes(search));
-    console.log(searchCustomer);
+    // const dateString = "2024-10-4";
+    // const dateObject = new Date(dateString);
+    // console.log(dateObject.getDate());
+    // console.log(dateObject.getMonth() + 1);
+    // console.log(dateObject.getFullYear());
+    // console.log(searchCustomer);
     const toast = (0,react__WEBPACK_IMPORTED_MODULE_4__.useRef)(null);
     const accept = (e)=>{
         console.log("accept", e);
@@ -103,47 +101,24 @@ function Add() {
                 ref: toast
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(primereact_confirmdialog__WEBPACK_IMPORTED_MODULE_9__.ConfirmDialog, {}),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(primereact_button__WEBPACK_IMPORTED_MODULE_2__.Button, {
-                className: "mb-5",
-                type: "button",
-                label: "اضافة زبون",
-                onClick: ()=>{
-                    router.push("/customers/add-customer");
-                }
-            }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                className: "p-inputgroup flex-1 mb-2",
-                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(primereact_inputtext__WEBPACK_IMPORTED_MODULE_1__.InputText, {
-                    placeholder: "بحث",
-                    value: search,
-                    onChange: (e)=>{
-                        setSearch(e.target.value);
-                    }
-                })
-            }),
-            search != "" && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                className: "card",
-                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(primereact_datatable__WEBPACK_IMPORTED_MODULE_5__.DataTable, {
-                    className: "text-primary",
-                    value: searchCustomer,
-                    showGridlines: true,
-                    tableStyle: {
-                        width: "100%",
-                        marginBottom: "10px"
-                    },
-                    children: [
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(primereact_column__WEBPACK_IMPORTED_MODULE_6__.Column, {
-                            className: "text-primary text-center",
-                            field: "name",
-                            header: "الاسم"
-                        }),
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(primereact_column__WEBPACK_IMPORTED_MODULE_6__.Column, {
-                            className: "text-primary text-center",
-                            field: "date",
-                            header: "تاريخ التسجيل"
-                        })
-                    ]
-                })
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                className: "flex justify-content-between mb-5 flex-wrap",
+                children: [
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(primereact_button__WEBPACK_IMPORTED_MODULE_2__.Button, {
+                        type: "button",
+                        label: "اضافة زبون",
+                        onClick: ()=>{
+                            router.push("/customers/add-customer");
+                        }
+                    }),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(primereact_button__WEBPACK_IMPORTED_MODULE_2__.Button, {
+                        type: "button",
+                        label: "بحث عن زبون",
+                        onClick: ()=>{
+                            router.push("/customers/search-customer");
+                        }
+                    })
+                ]
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                 className: "card",

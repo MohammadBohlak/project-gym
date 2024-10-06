@@ -1,9 +1,11 @@
 import axios from "axios";
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { url } from "..";
 import { useRouter } from "next/router";
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
 
 
 export default function addCustomer() {
@@ -11,6 +13,7 @@ export default function addCustomer() {
     const [name, setName] = useState("");
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +30,8 @@ export default function addCustomer() {
         setName("")
       });
   };
+
+
     return (
         <>
         
@@ -66,6 +71,7 @@ export default function addCustomer() {
 
         
       </form>
+     
       <Button className="mt-15" label="رجوع" onClick={()=>{
             router.push('/customers')
         }} />
