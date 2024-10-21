@@ -4,11 +4,12 @@ import { InputText } from "primereact/inputtext";
 import { useEffect, useState } from "react";
 import { url } from "..";
 import { useRouter } from "next/router";
-import { DataTable } from "primereact/datatable";
-import { Column } from "primereact/column";
-
+import { InputNumber } from "primereact/inputnumber";
+import { useLoader } from "@/hook/useLoader";
+import Layout from "@/pages/component/Layout";
 
 export default function addCustomer() {
+  const { loader, setLoader } = useLoader();
     const router = useRouter();
     const [name, setName] = useState("");
   const [day, setDay] = useState("");
@@ -17,6 +18,7 @@ export default function addCustomer() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoader("visible");
     await axios
       .post(`${url}/api/customers`, {
         name: name,
@@ -28,12 +30,14 @@ export default function addCustomer() {
         // setDay("")
         // router.push('/customers')
         setName("")
-      });
+      }).finally(() => {
+        setLoader("hidden");
+      });;
   };
 
 
     return (
-        <>
+        <Layout visible={loader} >
         
         
        
@@ -43,27 +47,33 @@ export default function addCustomer() {
             placeholder="الاسم"
             value={name}
             onChange={(e) => {
+              // console.log(e)
               setName(e.target.value);
             }}
           />
+          {/* <InputNumber value={value2} onValueChange={(e) => setValue2(e.value)} useGrouping={false} /> */}
+
         </div>
         {/* <span className="pi pi-search"></span> */}
 
         <div className="p-inputgroup mb-2">
-          <InputText
+          <InputNumber
             className="w-5 ml-2"
+            useGrouping={false}
             placeholder="اليوم"
             value={day}
             onChange={(e) => {
-              setDay(e.target.value);
+              setDay(e.value);
+              // console.log(day)
             }}
           />
-          <InputText
+          <InputNumber
             className="w-5"
+            useGrouping={false}
             placeholder="الشهر"
             value={month}
             onChange={(e) => {
-              setMonth(e.target.value);
+              setMonth(e.value);
             }}
           />
         </div>
@@ -76,6 +86,6 @@ export default function addCustomer() {
             router.push('/customers')
         }} />
 
-      </>
+      </Layout>
     )
 }

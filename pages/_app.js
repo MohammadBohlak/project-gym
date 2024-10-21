@@ -1,4 +1,4 @@
-//import '@/styles/globals.css'
+import '@/styles/globals.css'
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 import "primeflex/primeflex.css";
 

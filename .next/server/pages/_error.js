@@ -5,7 +5,7 @@ exports.id = 820;
 exports.ids = [820];
 exports.modules = {
 
-/***/ 516:
+/***/ 495:
 /***/ ((__unused_webpack_module, exports) => {
 
 var __webpack_unused_export__;
@@ -40,7 +40,7 @@ function _extends() {
 
 /***/ }),
 
-/***/ 619:
+/***/ 626:
 /***/ ((__unused_webpack_module, exports) => {
 
 var __webpack_unused_export__;
@@ -63,7 +63,7 @@ function _interopRequireDefault(obj) {
 
 /***/ }),
 
-/***/ 808:
+/***/ 598:
 /***/ ((__unused_webpack_module, exports) => {
 
 var __webpack_unused_export__;
@@ -120,7 +120,7 @@ function _interopRequireWildcard(obj, nodeInterop) {
 
 /***/ }),
 
-/***/ 531:
+/***/ 499:
 /***/ ((module, exports, __webpack_require__) => {
 
 
@@ -128,9 +128,9 @@ Object.defineProperty(exports, "__esModule", ({
     value: true
 }));
 exports["default"] = void 0;
-var _interop_require_default = (__webpack_require__(619)/* ["default"] */ .Z);
+var _interop_require_default = (__webpack_require__(626)/* ["default"] */ .Z);
 var _react = _interop_require_default(__webpack_require__(689));
-var _head = _interop_require_default(__webpack_require__(833));
+var _head = _interop_require_default(__webpack_require__(636));
 const statusCodes = {
     400: "Bad Request",
     404: "This page could not be found",
@@ -226,7 +226,7 @@ if ((typeof exports.default === "function" || typeof exports.default === "object
 
 /***/ }),
 
-/***/ 833:
+/***/ 636:
 /***/ ((module, exports, __webpack_require__) => {
 
 
@@ -236,9 +236,9 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.defaultHead = defaultHead;
 exports["default"] = void 0;
-var _extends = (__webpack_require__(516)/* ["default"] */ .Z);
-var _interop_require_default = (__webpack_require__(619)/* ["default"] */ .Z);
-var _interop_require_wildcard = (__webpack_require__(808)/* ["default"] */ .Z);
+var _extends = (__webpack_require__(495)/* ["default"] */ .Z);
+var _interop_require_default = (__webpack_require__(626)/* ["default"] */ .Z);
+var _interop_require_wildcard = (__webpack_require__(598)/* ["default"] */ .Z);
 var _react = _interop_require_wildcard(__webpack_require__(689));
 var _sideEffect = _interop_require_default(__webpack_require__(470));
 var _ampContext = __webpack_require__(918);
@@ -439,7 +439,7 @@ module.exports = require("react");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__(531));
+var __webpack_exports__ = (__webpack_exec__(499));
 module.exports = __webpack_exports__;
 
 })();

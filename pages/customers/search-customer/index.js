@@ -23,12 +23,26 @@ export default function Search(){
         <>
          <div className="p-inputgroup flex-1 mb-2">
         <InputText
+          className="search-input"
           placeholder="بحث"
           value={search}
           onChange={(e) => {
             setSearch(e.target.value);
           }}
         />
+        <div className="rmv-input">
+          <button onClick={()=>{setSearch("")}}>
+            +
+          </button>
+        </div>
+        {/* <InputText
+        type="search"
+          placeholder="بحث"
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        /> */}
 
       </div>
       <Button className="mt-15" label="رجوع" onClick={()=>{

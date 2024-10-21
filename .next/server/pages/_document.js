@@ -4,7 +4,7 @@ exports.id = 660;
 exports.ids = [660];
 exports.modules = {
 
-/***/ 51:
+/***/ 940:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -19,8 +19,8 @@ __webpack_unused_export__ = void 0;
 var _react = _interopRequireWildcard(__webpack_require__(689));
 var _constants = __webpack_require__(724);
 var _getPageFiles = __webpack_require__(140);
-var _htmlescape = __webpack_require__(706);
-var _isError = _interopRequireDefault(__webpack_require__(16));
+var _htmlescape = __webpack_require__(716);
+var _isError = _interopRequireDefault(__webpack_require__(676));
 var _htmlContext = __webpack_require__(743);
 class Document extends _react.default.Component {
     /**
@@ -619,7 +619,7 @@ class NextScript extends _react.default.Component {
                 return (0, _htmlescape).htmlEscapeJsonString(data);
             }
             const bytes =  false ? 0 : Buffer.from(data).byteLength;
-            const prettyBytes = (__webpack_require__(587)/* ["default"] */ .Z);
+            const prettyBytes = (__webpack_require__(955)/* ["default"] */ .Z);
             if (largePageDataBytes && bytes > largePageDataBytes) {
                 if (true) {
                     largePageDataWarnings.add(__NEXT_DATA__.page);
@@ -709,7 +709,7 @@ Document[_constants.NEXT_BUILTIN_DOCUMENT] = InternalFunctionDocument; //# sourc
 
 /***/ }),
 
-/***/ 123:
+/***/ 88:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -719,7 +719,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_document__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(590);
+/* harmony import */ var next_document__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(859);
 
 
 function Document() {
@@ -741,7 +741,7 @@ function Document() {
 
 /***/ }),
 
-/***/ 16:
+/***/ 676:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -767,7 +767,7 @@ function getProperError(err) {
 
 /***/ }),
 
-/***/ 587:
+/***/ 955:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -840,10 +840,10 @@ Formats the given number using `Number#toLocaleString`.
 
 /***/ }),
 
-/***/ 590:
+/***/ 859:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__(51)
+module.exports = __webpack_require__(940)
 
 
 /***/ }),
@@ -856,7 +856,7 @@ module.exports = require("next/dist/server/get-page-files.js");
 
 /***/ }),
 
-/***/ 706:
+/***/ 716:
 /***/ ((module) => {
 
 "use strict";
@@ -919,7 +919,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__(123));
+var __webpack_exports__ = (__webpack_exec__(88));
 module.exports = __webpack_exports__;
 
 })();

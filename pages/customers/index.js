@@ -1,25 +1,29 @@
-import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
-import { InputNumber } from "primereact/inputnumber";
 import { useEffect, useRef, useState } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-
 import axios from "axios";
 import { Toast } from "primereact/toast";
 import { confirmDialog, ConfirmDialog } from "primereact/confirmdialog";
 import { useRouter } from "next/router";
+import { useLoader } from "@/hook/useLoader";
+import Layout from "../component/Layout";
 export const url = "https://project-gym-chi.vercel.app";
 // export const url = "http://localhost:3000";
 export default function Add() {
+  const { loader, setLoader } = useLoader();
   const router = useRouter()
-  const [year, setYear] = useState("");
   const [customers, setCustomers] = useState([]);
 
  
   const getCustomers = () => {
-    axios.get(`${url}/api/customers`).then((res) => {
+    setLoader("visible");
+    axios.get(`${url}/api/customers`)
+    .then((res) => {
       setCustomers(res.data);
+    })
+    .finally(() => {
+      setLoader("hidden");
     });
   };
   useEffect(() => {
@@ -57,16 +61,15 @@ export default function Add() {
 
   const toast = useRef(null);
   const accept = (e) => {
-    console.log("accept" , e)
     axios.delete(`${url}/api/customers/${e}`).then(() => {
       getCustomers();
-    });
+    })
   };
 
   
   
   return (
-    <>
+    <Layout visible={loader} >
     <Toast ref={toast} />
     <ConfirmDialog />
     <div className="flex justify-content-between mb-5 flex-wrap" >
@@ -95,6 +98,6 @@ export default function Add() {
           ></Column>
         </DataTable>
       </div>
-    </>
+    </Layout>
   );
 }
