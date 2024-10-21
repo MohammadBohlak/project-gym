@@ -31,7 +31,10 @@ export default function Search(){
           }}
         />
         <div className="rmv-input">
-          <button onClick={()=>{setSearch("")}}>
+          <button onClick={()=>{
+            setSearch("")
+            document.querySelector(".search-input").focus()
+            }}>
             +
           </button>
         </div>
