@@ -29,7 +29,7 @@ export default function addCustomer() {
         // setDay("")
         // router.push('/customers')
         setName("");
-        document.getElementById("name-input").focus()
+        document.querySelector(".name-input").focus()
       })
       .finally(() => {
         setLoader("hidden");
@@ -41,7 +41,7 @@ export default function addCustomer() {
       <form className="flex flex-column mb-2">
         <div className="p-inputgroup flex mb-2">
           <InputText
-            id = "name-input"
+            className= "name-input"
             placeholder="الاسم"
             value={name}
             onChange={(e) => {
