@@ -10,11 +10,10 @@ import Layout from "@/pages/component/Layout";
 
 export default function addCustomer() {
   const { loader, setLoader } = useLoader();
-    const router = useRouter();
-    const [name, setName] = useState("");
+  const router = useRouter();
+  const [name, setName] = useState("");
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,21 +28,20 @@ export default function addCustomer() {
         // setMonth("")
         // setDay("")
         // router.push('/customers')
-        setName("")
-      }).finally(() => {
+        setName("");
+        document.getElementById("name-input").focus()
+      })
+      .finally(() => {
         setLoader("hidden");
-      });;
+      });
   };
 
-
-    return (
-        <Layout visible={loader} >
-        
-        
-       
-        <form className="flex flex-column mb-2">
+  return (
+    <Layout visible={loader}>
+      <form className="flex flex-column mb-2">
         <div className="p-inputgroup flex mb-2">
           <InputText
+            id = "name-input"
             placeholder="الاسم"
             value={name}
             onChange={(e) => {
@@ -52,7 +50,6 @@ export default function addCustomer() {
             }}
           />
           {/* <InputNumber value={value2} onValueChange={(e) => setValue2(e.value)} useGrouping={false} /> */}
-
         </div>
         {/* <span className="pi pi-search"></span> */}
 
@@ -78,14 +75,15 @@ export default function addCustomer() {
           />
         </div>
         <Button label="إضافة" onClick={handleSubmit} />
-
-        
       </form>
-     
-      <Button className="mt-15" label="رجوع" onClick={()=>{
-            router.push('/customers')
-        }} />
 
-      </Layout>
-    )
+      <Button
+        className="mt-15"
+        label="رجوع"
+        onClick={() => {
+          router.push("/customers");
+        }}
+      />
+    </Layout>
+  );
 }
