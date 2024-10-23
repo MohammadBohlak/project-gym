@@ -61,8 +61,12 @@ export default function Add() {
 
   const toast = useRef(null);
   const accept = (e) => {
+    setLoader("visible")
     axios.delete(`${url}/api/customers/${e}`).then(() => {
       getCustomers();
+    })
+    .finally(()=>{
+      setLoader("hidden")
     })
   };
 
