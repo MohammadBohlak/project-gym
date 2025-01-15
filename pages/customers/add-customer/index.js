@@ -21,7 +21,7 @@ export default function addCustomer() {
     await axios
       .post(`${url}/api/customers`, {
         name: name,
-        date: `2024-${month}-${day}`,
+        date: `2025-${month}-${day}`,
       })
       .then(() => {
         // getCustomers();

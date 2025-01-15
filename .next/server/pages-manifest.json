@@ -1,6 +1,14 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/customers/search-customer": "pages/customers/search-customer.js"
+  "/api/customers/[id]": "pages/api/customers/[id].js",
+  "/api/customers": "pages/api/customers.js",
+  "/api/hello": "pages/api/hello.js",
+  "/component/Layout": "pages/component/Layout.html",
+  "/customers/add-customer": "pages/customers/add-customer.html",
+  "/customers": "pages/customers.html",
+  "/_error": "pages/_error.js",
+  "/customers/search-customer": "pages/customers/search-customer.html",
+  "/": "pages/index.html",
+  "/404": "pages/404.html"
 }

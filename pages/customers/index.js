@@ -12,24 +12,25 @@ export const url = "https://project-gym-chi.vercel.app";
 // export const url = "http://localhost:3000";
 export default function Add() {
   const { loader, setLoader } = useLoader();
-  const router = useRouter()
+  const router = useRouter();
   const [customers, setCustomers] = useState([]);
 
- 
   const getCustomers = () => {
     setLoader("visible");
-    axios.get(`${url}/api/customers`)
-    .then((res) => {
-      setCustomers(res.data);
-    })
-    .finally(() => {
-      setLoader("hidden");
-    });
+    axios
+      .get(`${url}/api/customers`)
+      .then((res) => {
+        const array = res.data ;
+        const reversedArray = array.reduce((acc, curr) => [curr, ...acc], []);
+        setCustomers(reversedArray);
+      })
+      .finally(() => {
+        setLoader("hidden");
+      });
   };
   useEffect(() => {
     getCustomers();
   }, []);
-
   const actionButton = (rowData) => {
     const handleButtonClick = () => {
       // هنا يمكنك إرسال بيانات المستخدم المحدد عند النقر على الزر
@@ -38,17 +39,21 @@ export default function Add() {
         header: "Delete Confirmation",
         defaultFocus: "reject",
         acceptClassName: "p-button-danger",
-        accept : ()=>{accept(rowData._id)},
-        reject : ()=>{},
+        accept: () => {
+          accept(rowData._id);
+        },
+        reject: () => {},
       });
-      
     };
-    return(
+    return (
       <>
-      
-      <Button className="bg-red-800 border-none outline-none" onClick={handleButtonClick} label="حذف"></Button>
+        <Button
+          className="bg-red-800 border-none outline-none"
+          onClick={handleButtonClick}
+          label="حذف"
+        ></Button>
       </>
-    )
+    );
   };
   // const dateString = "2024-10-4";
   // const dateObject = new Date(dateString);
@@ -61,28 +66,38 @@ export default function Add() {
 
   const toast = useRef(null);
   const accept = (e) => {
-    setLoader("visible")
-    axios.delete(`${url}/api/customers/${e}`).then(() => {
-      getCustomers();
-    })
-    .finally(()=>{
-      setLoader("hidden")
-    })
+    setLoader("visible");
+    axios
+      .delete(`${url}/api/customers/${e}`)
+      .then(() => {
+        getCustomers();
+      })
+      .finally(() => {
+        setLoader("hidden");
+      });
   };
 
-  
-  
   return (
-    <Layout visible={loader} >
-    <Toast ref={toast} />
-    <ConfirmDialog />
-    <div className="flex justify-content-between mb-5 flex-wrap" >
-    <Button type='button' label="اضافة زبون" onClick={()=>{router.push('/customers/add-customer')}}/>
-    <Button type='button' label="بحث عن زبون" onClick={()=>{router.push('/customers/search-customer')}}/>
+    <Layout visible={loader}>
+      <Toast ref={toast} />
+      <ConfirmDialog />
+      <div className="flex justify-content-between mb-5 flex-wrap">
+        <Button
+          type="button"
+          label="اضافة زبون"
+          onClick={() => {
+            router.push("/customers/add-customer");
+          }}
+        />
+        <Button
+          type="button"
+          label="بحث عن زبون"
+          onClick={() => {
+            router.push("/customers/search-customer");
+          }}
+        />
+      </div>
 
-    </div>
-      
-      
       <div className="card">
         <DataTable
           value={customers}
